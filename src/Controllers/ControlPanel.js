@@ -286,6 +286,9 @@ class ControlPanel {
         $('#extra-mover-cost').change(function() {
             Hyperparams.extraMoverFoodCost = parseInt($('#extra-mover-cost').val());
         });
+        $('#extra-reproduction-cost').change(function () {
+            Hyperparams.extraReproductionCost = parseInt($('#extra-reproduction-cost').val());
+        });
 
         $('#evolved-mutation').change( function() {
             if (this.checked) {

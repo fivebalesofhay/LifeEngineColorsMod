@@ -27,6 +27,7 @@ const Hyperparams = {
         this.foodDropProb = 0;
 
         this.extraMoverFoodCost = 0;
+        this.extraReproductionCost = 1;
     },
 
     loadJsonObj(obj) {
