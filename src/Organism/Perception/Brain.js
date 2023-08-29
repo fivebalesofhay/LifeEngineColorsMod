@@ -45,6 +45,8 @@ class Brain {
         this.decisions[CellStates.mover.name] = Decision.getRandom();
         this.decisions[CellStates.armor.name] = Decision.getRandom();
         this.decisions[CellStates.eye.name] = Decision.getRandom();
+        this.decisions[CellStates.poison.name] = Decision.getRandom();
+        this.decisions[CellStates.parasite.name] = Decision.getRandom();
     }
 
     observe(observation) {

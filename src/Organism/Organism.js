@@ -255,6 +255,10 @@ class Organism {
         }
     }
 
+    parasitize() {
+        this.food_collected--;
+    }
+
     die() {
         for (var cell of this.anatomy.cells) {
             var real_c = this.c + cell.rotatedCol(this.rotation);

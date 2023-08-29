@@ -20,7 +20,7 @@ class PoisonCell extends BodyCell {
     killNeighbor(n_cell) {
         if (n_cell == null || n_cell.owner == null || n_cell.owner == this.org || !n_cell.owner.living || n_cell.state == CellStates.armor)
             return;
-        if (n_cell.state != CellStates.mouth && n_cell.state != CellStates.killer) return;
+        if (n_cell.state != CellStates.mouth && n_cell.state != CellStates.killer && n_cell.state != CellStates.parasite) return;
         var is_hit = n_cell.state == CellStates.killer; // has to be calculated before death
         n_cell.owner.harm();
         n_cell.owner.harm();
