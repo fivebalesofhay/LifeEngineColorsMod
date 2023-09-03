@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\Controllers",
+    "\\src\\Grid",
+    "\\src\\Organism",
+    "\\src\\Organism\\Cell",
+    "\\src\\Organism\\Cell\\BodyCells",
+    "\\src\\Organism\\Perception",
+    "\\src\\Rendering",
+    "\\src\\Utils"
+  ],
+  "SelectedNode": "\\src\\Organism\\Cell\\BodyCells\\KillerCell.js",
+  "PreviewInSolutionExplorer": false
+}

@@ -12,7 +12,8 @@ var color_scheme = {
     "eye":"#B6C1EA",
     "eye-slit": "#0E1318",
     "poison": "#47690C",
-    "parasite": "#A8327F"
+    "parasite": "#A8327F",
+    "infect": "#FFFFFF"
 }
 
 // Renderer controls access to a canvas. There is one renderer for each canvas

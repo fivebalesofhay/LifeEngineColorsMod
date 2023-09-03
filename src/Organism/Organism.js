@@ -25,6 +25,7 @@ class Organism {
         this.mutability = 5;
         this.damage = 0;
         this.brain = new Brain(this);
+        this.infector = null;
         if (parent != null) {
             this.inherit(parent);
         }
@@ -60,6 +61,10 @@ class Organism {
         //produce mutated child
         //check nearby locations (is there room and a direct path)
         var org = new Organism(0, 0, this.env, this);
+        if (this.infector != null && Math.random() <= 0.5) {
+            org = new Organism(0, 0, this.env, this.infector);
+        }
+        this.infector = null;
         if(Hyperparams.rotationEnabled){
             org.rotation = Directions.getRandomDirection();
         }

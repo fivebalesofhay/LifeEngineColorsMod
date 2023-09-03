@@ -86,6 +86,12 @@ class Parasite extends CellState {
     }
 }
 
+class Infect extends CellState {
+    constructor() {
+        super('infect');
+    }
+}
+
 const CellStates = {
     empty: new Empty(),
     food: new Food(),
@@ -98,9 +104,10 @@ const CellStates = {
     eye: new Eye(),
     poison: new Poison(),
     parasite: new Parasite(),
+    infect: new Infect(),
     defineLists() {
-        this.all = [this.empty, this.food, this.wall, this.mouth, this.producer, this.mover, this.killer, this.armor, this.eye, this.poison, this.parasite]
-        this.living = [this.mouth, this.producer, this.mover, this.killer, this.armor, this.eye, this.poison, this.parasite];
+        this.all = [this.empty, this.food, this.wall, this.mouth, this.producer, this.mover, this.killer, this.armor, this.eye, this.poison, this.parasite, this.infect];
+        this.living = [this.mouth, this.producer, this.mover, this.killer, this.armor, this.eye, this.poison, this.parasite, this.infect];
     },
     getRandomName: function() {
         return this.all[Math.floor(Math.random() * this.all.length)].name;
