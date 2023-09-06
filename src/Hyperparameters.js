@@ -28,6 +28,8 @@ const Hyperparams = {
 
         this.extraMoverFoodCost = 0;
         this.extraReproductionCost = 1;
+        this.herbivoreCost = 1.5;
+        this.carnivoreCost = 1;
     },
 
     loadJsonObj(obj) {

@@ -3,7 +3,7 @@
     "",
     "\\src",
     "\\src\\Controllers",
-    "\\src\\Grid",
+    "\\src\\Environments",
     "\\src\\Organism",
     "\\src\\Organism\\Cell",
     "\\src\\Organism\\Cell\\BodyCells",
@@ -11,6 +11,6 @@
     "\\src\\Rendering",
     "\\src\\Utils"
   ],
-  "SelectedNode": "\\src\\Organism\\Cell\\BodyCells\\KillerCell.js",
+  "SelectedNode": "\\src\\Organism\\Cell\\BodyCells\\CarnivoreMouthCell.js",
   "PreviewInSolutionExplorer": false
 }

@@ -46,7 +46,21 @@ class Organism {
 
     // amount of food required before it can reproduce
     foodNeeded() {
-        return (this.anatomy.is_mover ? this.anatomy.cells.length + Hyperparams.extraMoverFoodCost : this.anatomy.cells.length) + Hyperparams.extraReproductionCost;
+        var extraCells = 0;
+        for (var cell of this.anatomy.cells) {
+            if (cell.state == CellStates.carnivoremouth) {
+                extraCells += Math.floor(Hyperparams.carnivoreCost)
+                if (this.calcRandomChance(Hyperparams.carnivoreCost - Math.floor(Hyperparams.carnivoreCost)))
+                    extraCells++;
+            }
+            if (cell.state == CellStates.herbivoremouth) {
+                extraCells += Math.floor(Hyperparams.herbivoreCost)
+                if (this.calcRandomChance(Hyperparams.herbivoreCost - Math.floor(Hyperparams.herbivoreCost)))
+                    extraCells++;
+            }
+                
+        }
+        return (this.anatomy.is_mover ? this.anatomy.cells.length + Hyperparams.extraMoverFoodCost : this.anatomy.cells.length) + Hyperparams.extraReproductionCost + extraCells;
     }
 
     lifespan() {
@@ -129,6 +143,9 @@ class Organism {
         if (this.calcRandomChance(Hyperparams.addProb)) {
             let branch = this.anatomy.getRandomCell();
             let state = CellStates.getRandomLivingType();//branch.state;
+            while ((state == CellStates.carnivoremouth || state == CellStates.herbivoremouth) && this.anatomy.is_producer) {
+                state = CellStates.getRandomLivingType();
+            }
             let growth_direction = Neighbors.all[Math.floor(Math.random() * Neighbors.all.length)]
             let c = branch.loc_col+growth_direction[0];
             let r = branch.loc_row+growth_direction[1];
@@ -140,6 +157,9 @@ class Organism {
         if (this.calcRandomChance(Hyperparams.changeProb)){
             let cell = this.anatomy.getRandomCell();
             let state = CellStates.getRandomLivingType();
+            while ((state == CellStates.carnivoremouth || state == CellStates.herbivoremouth) && this.anatomy.is_producer) {
+                state = CellStates.getRandomLivingType();
+            }
             this.anatomy.replaceCell(state, cell.loc_col, cell.loc_row);
             changed = true;
         }

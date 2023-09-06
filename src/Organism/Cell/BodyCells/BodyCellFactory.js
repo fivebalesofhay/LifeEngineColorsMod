@@ -7,6 +7,8 @@ const EyeCell = require("./EyeCell");
 const PoisonCell = require("./PoisonCell");
 const ParasiteCell = require("./ParasiteCell");
 const InfectCell = require("./InfectCell");
+const CarnivoreMouthCell = require("./CarnivoreMouthCell");
+const HerbivoreMouthCell = require("./HerbivoreMouthCell");
 const CellStates = require("../CellStates");
 
 
@@ -22,6 +24,8 @@ const BodyCellFactory = {
         type_map[CellStates.poison.name] = PoisonCell;
         type_map[CellStates.parasite.name] = ParasiteCell;
         type_map[CellStates.infect.name] = InfectCell;
+        type_map[CellStates.carnivoremouth.name] = CarnivoreMouthCell;
+        type_map[CellStates.herbivoremouth.name] = HerbivoreMouthCell;
         this.type_map = type_map;
     },
 
