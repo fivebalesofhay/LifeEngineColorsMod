@@ -50,6 +50,7 @@ class Brain {
         this.decisions[CellStates.infect.name] = Decision.getRandom();
         this.decisions[CellStates.carnivoremouth.name] = Decision.getRandom();
         this.decisions[CellStates.herbivoremouth.name] = Decision.getRandom();
+        this.decisions[CellStates.advancedeye.name] = Decision.getRandom();
     }
 
     observe(observation) {

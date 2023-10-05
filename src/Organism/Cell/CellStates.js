@@ -104,6 +104,35 @@ class HerbivoreMouth extends CellState {
     }
 }
 
+class AdvancedEye extends CellState {
+    constructor() {
+        super('advancedeye');
+        this.slit_color = 'black';
+    }
+    render(ctx, cell, size) {
+        ctx.fillStyle = this.color;
+        ctx.fillRect(cell.x, cell.y, size, size);
+        if (size == 1)
+            return;
+        var half = size / 2;
+        var x = -(size) / 8
+        var y = -half;
+        var h = size / 2 + size / 4;
+        var w = size / 4;
+        ctx.translate(cell.x + half, cell.y + half);
+        ctx.rotate((cell.cell_owner.getAbsoluteDirection() * 90) * Math.PI / 180);
+        ctx.fillStyle = this.slit_color;
+        ctx.fillRect(x, y, w, h-size/8);
+        ctx.rotate(Math.PI / 2);
+        ctx.fillStyle = this.slit_color;
+        ctx.fillRect(x, y, w, h);
+        ctx.rotate(-Math.PI);
+        ctx.fillStyle = this.slit_color;
+        ctx.fillRect(x, y, w, h);
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+    }
+}
+
 const CellStates = {
     empty: new Empty(),
     food: new Food(),
@@ -119,9 +148,10 @@ const CellStates = {
     infect: new Infect(),
     carnivoremouth: new CarnivoreMouth(),
     herbivoremouth: new HerbivoreMouth(),
+    advancedeye: new AdvancedEye(),
     defineLists() {
-        this.all = [this.empty, this.food, this.wall, this.mouth, this.producer, this.mover, this.killer, this.armor, this.eye, this.poison, this.parasite, this.infect, this.carnivoremouth, this.herbivoremouth];
-        this.living = [this.mouth, this.producer, this.mover, this.killer, this.armor, this.eye, this.poison, this.parasite, this.infect, this.carnivoremouth, this.herbivoremouth];
+        this.all = [this.empty, this.food, this.wall, this.mouth, this.producer, this.mover, this.killer, this.armor, this.eye, this.poison, this.parasite, this.infect, this.carnivoremouth, this.herbivoremouth, this.advancedeye];
+        this.living = [this.mouth, this.producer, this.mover, this.killer, this.armor, this.eye, this.poison, this.parasite, this.infect, this.carnivoremouth, this.herbivoremouth, this.advancedeye];
     },
     getRandomName: function() {
         return this.all[Math.floor(Math.random() * this.all.length)].name;

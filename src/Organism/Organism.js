@@ -58,7 +58,11 @@ class Organism {
                 if (this.calcRandomChance(Hyperparams.herbivoreCost - Math.floor(Hyperparams.herbivoreCost)))
                     extraCells++;
             }
-                
+            if (cell.state == CellStates.advancedeye) {
+                extraCells += Math.floor(Hyperparams.advancedeyeCost)
+                if (this.calcRandomChance(Hyperparams.carnivoreCost - Math.floor(Hyperparams.advancedeyeCost)))
+                    extraCells++;
+            }    
         }
         return (this.anatomy.is_mover ? this.anatomy.cells.length + Hyperparams.extraMoverFoodCost : this.anatomy.cells.length) + Hyperparams.extraReproductionCost + extraCells;
     }

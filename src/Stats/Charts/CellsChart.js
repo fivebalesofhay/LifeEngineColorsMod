@@ -26,7 +26,7 @@ class CellsChart extends ChartController {
             this.data.push({
                 type: "line",
                 markerType: "none",
-                color: c.color,
+                color: c.name == "advancedeye" ? "#727994" : c.color,
                 showInLegend: true, 
                 name: c.name,
                 legendText: "Avg. " + c.name + " cells",

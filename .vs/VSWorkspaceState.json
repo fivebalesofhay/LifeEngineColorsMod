@@ -1,16 +1,17 @@
 {
   "ExpandedNodes": [
     "",
+    "\\dist",
     "\\src",
-    "\\src\\Controllers",
-    "\\src\\Environments",
     "\\src\\Organism",
     "\\src\\Organism\\Cell",
     "\\src\\Organism\\Cell\\BodyCells",
     "\\src\\Organism\\Perception",
     "\\src\\Rendering",
+    "\\src\\Stats",
+    "\\src\\Stats\\Charts",
     "\\src\\Utils"
   ],
-  "SelectedNode": "\\src\\Organism\\Cell\\BodyCells\\CarnivoreMouthCell.js",
+  "SelectedNode": "\\src\\Hyperparameters.js",
   "PreviewInSolutionExplorer": false
 }

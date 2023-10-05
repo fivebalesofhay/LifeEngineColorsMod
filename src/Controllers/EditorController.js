@@ -36,7 +36,7 @@ class EditorController extends CanvasController{
         if (this.edit_cell_type == null || this.mode != Modes.Edit)
             return;
         if (this.left_click){
-            if(this.edit_cell_type == CellStates.eye && this.cur_cell.state == CellStates.eye) {
+            if ((this.edit_cell_type == CellStates.eye && this.cur_cell.state == CellStates.eye) || (this.edit_cell_type == CellStates.advancedeye && this.cur_cell.state == CellStates.advancedeye)) {
                 var loc_cell = this.getCurLocalCell();
                 loc_cell.direction = Directions.rotateRight(loc_cell.direction);
                 this.env.renderFull();
@@ -92,6 +92,9 @@ class EditorController extends CanvasController{
                     break;
                 case "herbivoremouth":
                     self.edit_cell_type = CellStates.herbivoremouth;
+                    break;
+                case "advancedeye":
+                    self.edit_cell_type = CellStates.advancedeye;
                     break;
             }
             $(".cell-type" ).css( "border-color", "black" );

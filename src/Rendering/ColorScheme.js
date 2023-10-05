@@ -15,7 +15,8 @@ var color_scheme = {
     "parasite": "#A8327F",
     "infect": "#F0F0F0",
     "carnivoremouth": "#ff00ff",
-    "herbivoremouth": "#ebe41c"
+    "herbivoremouth": "#ebe41c",
+    "advancedeye": "#B6C1EA"
 }
 
 // Renderer controls access to a canvas. There is one renderer for each canvas
@@ -29,7 +30,8 @@ class ColorScheme {
         for (var state of CellStates.all) {
             state.color = color_scheme[state.name];
         }
-        CellStates.eye.slit_color=color_scheme['eye-slit']
+        CellStates.eye.slit_color = color_scheme['eye-slit']
+        CellStates.advancedeye.slit_color = color_scheme['eye-slit']
         for (var cell_type in color_scheme) {
             $('#'+cell_type+'.cell-type ').css('background-color', color_scheme[cell_type]);
             $('#'+cell_type+'.cell-legend-type').css('background-color', color_scheme[cell_type]);

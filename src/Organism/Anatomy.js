@@ -32,7 +32,7 @@ class Anatomy {
     }
 
     addRandomizedCell(state, c, r) {
-        if (state == CellStates.eye && !this.has_eyes) {
+        if ((state == CellStates.eye || state == CellStates.advancedeye) && !this.has_eyes) {
             this.owner.brain.randomizeDecisions();
         }
         var new_cell = BodyCellFactory.createRandom(this.owner, state, c, r);
@@ -88,7 +88,7 @@ class Anatomy {
                 this.is_producer = true;
             if (cell.state == CellStates.mover)
                 this.is_mover = true;
-            if (cell.state == CellStates.eye)
+            if (cell.state == CellStates.eye || cell.state == CellStates.advancedeye)
                 this.has_eyes = true;
         }
     }
